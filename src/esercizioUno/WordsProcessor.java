@@ -17,13 +17,18 @@ public class WordsProcessor {
         for (int i = 0; i < n; i++) {
             System.out.println("Enter the word: ");
             String word = scanner.nextLine();
-            if (!words.add(word)) {
-                System.out.println(!words.add(word));
+            if (word.isEmpty()) {
+                System.out.println("Empty strings are not allowed.");
+                i--;
+            } else if (!words.add(word)) {
                 duplicates.add(word);
             }
         }
-
-        System.out.println("The duplicates are: " + duplicates);
+        if (duplicates.isEmpty()) {
+            System.out.println("No duplicates found.");
+        } else {
+            System.out.println("The duplicates are: " + duplicates);
+        }
         System.out.println("The number of distinct words is: " + words.size());
         System.out.println("List of distinct words: " + words);
     }
